@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CategoriesModule } from './categories/categories.module';
+import { CouponsModule } from './coupons/coupons.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { CategoriesModule } from './categories/categories.module';
       dbName: 'recipesDB',
     }),
     CategoriesModule,
+    CouponsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
