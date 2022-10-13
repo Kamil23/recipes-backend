@@ -1,20 +1,17 @@
 import { BadRequestException, Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ResponseSchema } from './common/schemas/response.schema';
+import { ResponseSchema, Response } from './common/schemas/response.schema';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  healthCheck(): Response {
+    return this.appService.healthCheck();
   }
 
-  @Get('/test')
-  getJSON(): object {
-    return this.appService.getJSON();
-  }
+  /** --------------------------*/
 
   @Get('/orlenValues/')
   async getOrlenValues(

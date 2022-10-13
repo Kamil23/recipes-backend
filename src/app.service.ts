@@ -1,24 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { Response, ResponseSchema } from './common/schemas/response.schema';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
-
-  getJSON(): object {
-    return {
-      code: 200,
-      status: 'OK',
-      data: [
-        {
-          id: 1,
-          title: 'Beza malinowa',
-          ingredients: '',
-        },
-      ],
-    };
+  healthCheck(): Response {
+    return new ResponseSchema(200, 'ok');
   }
 
   async getOrlenValues(startDate, endDate): Promise<[]> {
